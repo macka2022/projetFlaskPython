@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mes taches
+{% endblock %}
+
+{% block content %}
+    <h1 style="color:#49be25"> Bienvenue sur le Gestionnaire de taches</h1>
+    <h3 style="color:#2596be">
+      Voici la liste de toutes vos taches
+    </h3>
+    <br>
+
+    <table class="table table-over table-dark">
+      <!-- En-tete du tableau (titre des colonnes) -->
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">titre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date de fin</th>
+            <th scope="col">Options</th>
+
+          </tr>
+        </thead>
+      <!-- corps du tableau (le contenu) -->
+        <tbody>
+      <!-- boucle d'iteration sur l'objet @data -->
+        {% for item in data %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.titre }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.echeance }}</td>
+            <td>
+              <a class="btn btn-outline btn-info" href="{{ url_for('home_page') }}">Mettre A Jour</a>
+              <a class="btn btn-outline btn-danger" href="url_for{'delete_tasks'}">Supprimer</a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

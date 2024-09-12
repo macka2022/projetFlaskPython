@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" >
+
+        <h3 style="color:#75bed3" class="text-center">Entrez vos infos de connexion</h3>
+        <br>
+    <!-- Creation du Formulaire -->
+        <form method="POST"  class="form-register" style="color: #75bed3; font-weight:bold">
+        <!-- empecher les injections SQL via le formulaire -->
+            {{ form.hidden_tag() }}
+
+        <!-- Mise en place des champs du formulaire -->
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="User name") }}
+
+            {{ form.password.label() }}
+            {{ form.password(class="form-control", placeholder="Enter a password") }}
+
+            <hr>
+            <div class="checkbox mb-3">
+                <h5>Vous n'avez pas un compte? </h5>
+                <a href="{{ url_for('register_page') }}" class="btn btn-sm btn-secondary">S'inscrire</a>
+            </div>
+            <!-- boutton de validation -->
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+  <style>
+    .container{
+        margin-top: 10%;
+        }
+  </style>
+{% endblock %}

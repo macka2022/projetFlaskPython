@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <h1 style="color:#75bed3" class="text-center">Ajouter une tache</h1>
+
+    <!-- Creation du Formulaire -->
+        <form method="POST"  class="form-register" style="color: #75bed3; font-weight:bold">
+        <!-- empecher les injections SQL via le formulaire -->
+            {{ form.hidden_tag() }}
+
+        <!-- Mise en place des champs du formulaire -->
+            {{ form.titre.label() }}
+            {{ form.titre(class="form-control", placeholder="Nom de la tache") }}
+
+            {{ form.description.label() }}
+            {{ form.description(class="form-control", placeholder="description...") }}
+
+            {{ form.date_fin.label() }}
+            {{ form.date_fin(class="form-control") }}
+            <hr>
+            <!-- boutton de validation -->
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+  <style>
+    .container{
+        margin-top: 10%;
+        }
+  </style>
+{% endblock %}

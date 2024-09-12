@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier une tâche</title>
+</head>
+<body>
+    <h1>Modifier une tâche</h1>
+    <form action="{{ url_for('update_task', task_id=tasks.id) }}" method="post">
+
+        <input hidden type="text" name="id" id="id" value="{{ tasks.id }}" required>
+        <label for="title">Titre :</label>
+        <input type="text" name="nom" id="title" value="{{ tasks.title }}" required>
+        <input type="adress" name="nom" id="nom" value="{{ tasks.description }}" required>
+        <input type="text" name="nom" id="adresse" value="{{ tasks.echeance }}" required>
+        <!-- Ajoutez d'autres champs pour les autres attributs de la tâche -->
+        <button type="submit">Modifier</button>
+    </form>
+</body>
+</html>

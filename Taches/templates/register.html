@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Inscription
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <h1 style="color:#75bed3" class="text-center">Formulaire d'inscription</h1>
+
+    <!-- Creation du Formulaire -->
+        <form method="POST"  class="form-register" style="color: #75bed3; font-weight:bold">
+        <!-- empecher les injections SQL via le formulaire -->
+            {{ form.hidden_tag() }}
+
+        <!-- Mise en place des champs du formulaire -->
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="User name") }}
+
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="User mail") }}
+
+            {{ form.password.label() }}
+            {{ form.password(class="form-control", placeholder="Enter a password") }}
+
+            {{ form.confirmPassword.label() }}
+            {{ form.confirmPassword(class="form-control", placeholder="Confirm the password") }}
+
+            <hr>
+             <div class="checkbox mb-3">
+                <h5>Vous avez deja un compte? </h5>
+                <a href="{{ url_for('login_page') }}" class="btn btn-sm btn-secondary">Se connecter</a>
+            </div>
+            <!-- boutton de validation -->
+            {{ form.submit(class="btn btn-lg btn-block btn-primary", placeholder="Confirm the password") }}
+
+        </form>
+    </div>
+  <style>
+    .container{
+        margin-top: 10%;
+        }
+  </style>
+{% endblock %}
